@@ -19,5 +19,15 @@ class HelloWorld {
 
     // Print variable type
     println name.getClass()
+
+    // Create new Person class and instantiate it
+    Person janeSmith = new Person()
+    janeSmith.setFirstName("Jane")
+    janeSmith.setLastName("Smith")
+    janeSmith.setAge(20)
+
+    // Print the full name and age of the Person instance
+    println janeSmith.getFullName()
+    println janeSmith.getAge()    
   }
 }
