@@ -1,4 +1,8 @@
+import groovy.transform.ToString
+
 // Declare convenience annotations on class-level
+@ToString
+
 class Person {
     String firstName
     String lastName
@@ -46,14 +50,14 @@ class Person {
         return result
     }
 
-    @Override
-    String toString() {
-        return "Person(" +
-                firstName + ", " +
-                lastName + ", " +
-                age +
-                ")"
-    }
+    // @Override
+    // String toString() {
+    //     return "Person(" +
+    //             firstName + ", " +
+    //             lastName + ", " +
+    //             age +
+    //             ")"
+    // }
 }
 
 // Previous Learning Notes
