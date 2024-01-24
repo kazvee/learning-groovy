@@ -5,14 +5,45 @@ class HelloWorld {
         johnDoe.setLastName("Doe")
         johnDoe.setAge(40)
 
-        assert johnDoe.toString() == "Person(John, Doe, 40)"
-        assert johnDoe.equals(johnDoe)
-        assert !johnDoe.equals(new Person(firstName: "Mary", lastName: "Hill", age: 30))
-        assert new Person("Mary", "Hill", 30).toString() == "Person(Mary, Hill, 30)"
+        // Create Closure that prints String representation of a person
+        Closure personToString = { Person person ->
+            println person.toString()
+        }
+
+        // Create Closure that prints full name of a person
+        Closure personFullName = { Person person ->
+            println person.firstName + " " + person.lastName
+        }
+
+        // Pass Closure to a method and execute it
+        handlePerson(personToString, johnDoe)
+        handlePerson(personFullName, johnDoe)
+    }
+
+    static void handlePerson(Closure c, Person p) {
+        if (p == null) {
+            throw new RuntimeException("A person instance cannot be null")
+        }
+
+        c(p)
     }
 }
 
 // Previous Learning Notes
+
+// class HelloWorld {
+//     static void main(String[] args) {
+//         Person johnDoe = new Person()
+//         johnDoe.setFirstName("John")
+//         johnDoe.setLastName("Doe")
+//         johnDoe.setAge(40)
+
+//         assert johnDoe.toString() == "Person(John, Doe, 40)"
+//         assert johnDoe.equals(johnDoe)
+//         assert !johnDoe.equals(new Person(firstName: "Mary", lastName: "Hill", age: 30))
+//         assert new Person("Mary", "Hill", 30).toString() == "Person(Mary, Hill, 30)"
+//     }
+// }
 
 // class HelloWorld {
 //     static void main(String[] args) {

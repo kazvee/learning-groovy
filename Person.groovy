@@ -1,20 +1,31 @@
-import groovy.transform.Canonical
-// import groovy.transform.ToString
-// import groovy.transform.EqualsAndHashCode
-// import groovy.transform.TupleConstructor
+import groovy.transform.ToString
 
-// Declare convenience annotations on class-level
-@Canonical
-// The Canonical annotation aggregates the functionality of these other annotations:
-// @ToString
-// @EqualsAndHashCode
-// @TupleConstructor
-
+@ToString
 class Person {
     String firstName
     String lastName
     int age
 }
+
+// Previous Learning Notes
+
+// import groovy.transform.Canonical
+// import groovy.transform.ToString
+// import groovy.transform.EqualsAndHashCode
+// import groovy.transform.TupleConstructor
+
+// Declare convenience annotations on class-level
+// @Canonical
+// The Canonical annotation aggregates the functionality of these other annotations:
+// @ToString
+// @EqualsAndHashCode
+// @TupleConstructor
+
+// class Person {
+//     String firstName
+//     String lastName
+//     int age
+// }
 
     // Person() {
     // }
@@ -66,8 +77,6 @@ class Person {
     //             age +
     //             ")"
     // }
-
-// Previous Learning Notes
 
 // class Person {
 //   String firstName
