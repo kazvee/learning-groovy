@@ -1,35 +1,70 @@
 class HelloWorld {
     static void main(String[] args) {
-        Person johnDoe = new Person()
-        johnDoe.setFirstName("John")
-        johnDoe.setLastName("Doe")
-        johnDoe.setAge(40)
+        Person johnDoe = new Person("John", "Doe", 40)
+        Person maryHill = new Person("Mary", "Hill", 30)
+        Person thomasMarks = new Person("Thomas", "Marks", 21)
 
-        // Create Closure that prints String representation of a person
-        Closure personToString = { Person person ->
-            println person.toString()
+        // Create a new list of persons
+        def allPersons = [johnDoe, maryHill, thomasMarks]
+
+        // Querying Collections
+        assert allPersons instanceof java.util.List
+        assert allPersons.size() == 3
+        assert allPersons[2] == thomasMarks
+
+        // Iterate over elements
+        allPersons.each {
+            println it
         }
 
-        // Create Closure that prints full name of a person
-        Closure personFullName = { Person person ->
-            println person.firstName + " " + person.lastName
+        // Iterate over elements and using an index
+        allPersons.eachWithIndex { person, index ->
+            println index + ": " + person
         }
 
-        // Pass Closure to a method and execute it
-        handlePerson(personToString, johnDoe)
-        handlePerson(personFullName, johnDoe)
-    }
+        // Filtering a specific element
+        assert allPersons.find { it.lastName == 'Hill' } == maryHill
 
-    static void handlePerson(Closure c, Person p) {
-        if (p == null) {
-            throw new RuntimeException("A person instance cannot be null")
-        }
+        // Transforming elements into something else
+        assert allPersons.collect { it.age <= 30 } == [false, true, true]
 
-        c(p)
+        // Sorting elements based on a criterion
+        assert allPersons.sort { it.age } == [thomasMarks, maryHill, johnDoe]
     }
 }
 
 // Previous Learning Notes
+
+// class HelloWorld {
+//     static void main(String[] args) {
+//         Person johnDoe = new Person()
+//         johnDoe.setFirstName("John")
+//         johnDoe.setLastName("Doe")
+//         johnDoe.setAge(40)
+
+//         // Create Closure that prints String representation of a person
+//         Closure personToString = { Person person ->
+//             println person.toString()
+//         }
+
+//         // Create Closure that prints full name of a person
+//         Closure personFullName = { Person person ->
+//             println person.firstName + " " + person.lastName
+//         }
+
+//         // Pass Closure to a method and execute it
+//         handlePerson(personToString, johnDoe)
+//         handlePerson(personFullName, johnDoe)
+//     }
+
+//     static void handlePerson(Closure c, Person p) {
+//         if (p == null) {
+//             throw new RuntimeException("A person instance cannot be null")
+//         }
+
+//         c(p)
+//     }
+// }
 
 // class HelloWorld {
 //     static void main(String[] args) {
