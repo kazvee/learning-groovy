@@ -53,5 +53,14 @@ class HelloWorld {
             assert e instanceof NumberFormatException
             println "☹️ Error: Cannot convert a String into a Long"
         }
+
+        // Create new Person class and instantiate it
+        Person maryHill = new Person()
+        maryHill.setFirstName("Maryann")
+        maryHill.setLastName("Hill")
+        maryHill.setAge(40)
+
+        // Use dropRight method to remove the last 3 characters
+        println maryHill.getFirstName().dropRight(3)
     }
 }
