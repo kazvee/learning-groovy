@@ -1,11 +1,14 @@
-import groovy.transform.ToString
-import groovy.transform.EqualsAndHashCode
-import groovy.transform.TupleConstructor
+import groovy.transform.Canonical
+// import groovy.transform.ToString
+// import groovy.transform.EqualsAndHashCode
+// import groovy.transform.TupleConstructor
 
 // Declare convenience annotations on class-level
-@ToString
-@EqualsAndHashCode
-@TupleConstructor
+@Canonical
+// The Canonical annotation aggregates the functionality of these other annotations:
+// @ToString
+// @EqualsAndHashCode
+// @TupleConstructor
 
 class Person {
     String firstName
